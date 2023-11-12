@@ -1,3 +1,3 @@
 # Sparx Maths Extension
 
-A simple Chrome extension to intercept answers from [Sparx](https://sparxmath.uk/)!
+A simple Chrome extension to intercept answers from [Sparx](https://sparxmaths.uk/)!
