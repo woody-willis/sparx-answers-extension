@@ -1,6 +1,6 @@
 {
     "name": "Sparx Answers",
-    "version": "1.0.0",
+    "version": "2.0",
     "description": "Sparx Homework made easy!",
     "manifest_version": 3,
     "author": "Woody Willis",
@@ -12,26 +12,18 @@
         "128": "icons/128.png"
     },
 
-    "permissions": [
-        "scripting",
-        "background",
-        "webRequest",
-        "declarativeNetRequest",
-        "tabs",
-        "debugger",
-        "windows"
-    ],
-
     "host_permissions": [
         "*://*.sparxmaths.uk/*"
     ],
 
-    "background": {
-        "service_worker": "service_worker.js",
-        "type": "module"
-    },
+    "content_scripts": [{
+        "matches": ["*://*.sparxmaths.uk/*"],
+        "run_at": "document_start",
+        "js": ["inject.js"]
+    }],
 
-    "content_security_policy": {
-        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
-    }
+    "web_accessible_resources": [{
+        "resources": ["intercepter.js"],
+        "matches": ["*://*.sparxmaths.uk/*"]
+    }]
 }
